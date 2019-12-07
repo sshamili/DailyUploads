@@ -43,15 +43,18 @@ public class DuplicateLead {
 				driver.findElementByLinkText("Email").click();
 				
 				// Enter Email Address
-				driver.findElementByClassName("emailAddress").sendKeys("sthesiva88@gmail.com");
+				driver.findElementByName("emailAddress").sendKeys("sthesiva88@gmail.com");
+				
 				
 				// Click on Find Leads
 				driver.findElementByXPath("//button[text()='Find Leads']").click();
 				Thread.sleep(2000);
 				
 				// Get the First Result
+				System.out.println("FirstName of first Resultant: "+driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-friendlyPartyName'])/a").getText());
 				
 				// Click on the First result
+				driver.findElementByXPath("(//div[@class='x-grid3-cell-inner x-grid3-col-partyId'])/a").click();
 				
 				Thread.sleep(3000);
 				

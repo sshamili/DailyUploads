@@ -27,14 +27,15 @@ public class ReverseEvenWords {
 			//System.out.print(split[i]+" ");
 			char[] charArray = split[i].toCharArray();
 			for (int j = charArray.length-1; j >=0; j--) {
-				 //System.out.print(charArray[j]);
-				 split[i] = Character.toString(charArray[j]);
+				 System.out.print(charArray[j]);
+				 //split[i] = Character.toString(charArray[j]);
 				 
-			}
+			} 	
 			System.out.print(" ");
 			}
-			
-			System.out.print(split[i]);
+			else {
+			System.out.print(split[i]+" ");
+			}
 		}
 
 	}

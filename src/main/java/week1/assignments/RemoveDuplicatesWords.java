@@ -27,10 +27,14 @@ public class RemoveDuplicatesWords {
 		System.out.println( "Repeated Word: "+str[i]);
 		
 		//code to remove all duplicate occurrences including the source. eg. java is java => is 
-		if(count>1) {
+		if(count>=1) {
+						
 			text = text.replace(str[j], ""); 
+		  //System.out.println("Text after replace: "+text);
+			
 		}
 		}
+		count=0;
 		}
 		}
 		/*
