@@ -7,5 +7,6 @@ public class OnePlus extends Mobile{
 	public void makePhoneCall() {
 		System.out.println("Whatapp Call Normal");
 	}
-
 }
+
+

@@ -13,9 +13,12 @@ public void camera() {
 public void camera(String mode) {
 	if(mode.equals("Potrait")) {
 		System.out.println("Take a Potrait snap");
+		
 	}else {
 		System.out.println("Take a Landscape snap");
+		
 	}
+	
 }
 
 public void addNumbers(int a, int b) {

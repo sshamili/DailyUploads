@@ -2,6 +2,8 @@ package day4.classroom;
 
 
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,8 +24,8 @@ public class Table {
 				
 				// Table
 				
-				WebElement eTable = d.findElementByXPath("//table[@class='DataTable DataTableHeader TrainList TrainListHeader']");
-				List <WebElement>  erows= eTable.findElement(By.tagName("tr"));	
+			List<WebElement> findElementsByXPath = d.findElementsByXPath("//table[@class='DataTable DataTableHeader TrainList TrainListHeader']//td[2]");
+				
 				
 	}
 
