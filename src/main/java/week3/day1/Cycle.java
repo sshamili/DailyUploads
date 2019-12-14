@@ -1,7 +1,5 @@
 package week3.day1;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
 public class Cycle {
 	public String getColor() {
 		return "Black";

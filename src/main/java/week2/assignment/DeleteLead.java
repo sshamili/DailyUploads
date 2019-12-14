@@ -3,8 +3,6 @@ package week2.assignment;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import cucumber.api.java.en_old.Ac;
-
 public class DeleteLead {
 
 	public static void main(String[] args) throws InterruptedException {

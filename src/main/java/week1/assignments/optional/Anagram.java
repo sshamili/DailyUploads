@@ -2,8 +2,6 @@ package week1.assignments.optional;
 
 import java.util.Arrays;
 
-import sun.security.util.Length;
-
 public class Anagram {
 
 	public static void main(String[] args) {

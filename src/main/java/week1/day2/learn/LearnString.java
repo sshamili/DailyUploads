@@ -19,4 +19,5 @@ public class LearnString {
 	text.replace(oldChar, newChar) - Used to replace a particular old character into a new character in the given String - String
 	text.replaceAll(regex, replacement) - Used to replace all the characters as per the given regex into a replacement String - String
 */
+	System.out.println(text);
 }}

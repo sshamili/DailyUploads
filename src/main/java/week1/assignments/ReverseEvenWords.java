@@ -1,7 +1,5 @@
 package week1.assignments;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
-
 public class ReverseEvenWords {
 
 	public static void main(String[] args) {

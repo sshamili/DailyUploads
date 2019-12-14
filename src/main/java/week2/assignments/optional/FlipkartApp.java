@@ -36,6 +36,7 @@ public class FlipkartApp {
 				}
 				// Print all the phone numbers 
 				String model = driver.findElementByXPath("//div[@class='_3wU53n'])[1]").getText();
+				System.out.println(model);
 				// Close the Number
 
 	}
