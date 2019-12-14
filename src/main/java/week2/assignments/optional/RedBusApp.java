@@ -26,7 +26,8 @@ public class RedBusApp {
 				
 				Thread.sleep(5000);
 				// Enter From (Chennai) and Tab
-				driver.findElementByXPath("//input[@id='src']").sendKeys("Chennai");
+				driver.findElementByXPath("//input[@id='src']").sendKeys("Chennai",Keys.DOWN.TAB);
+				
 				
 				// Enter To (Trichy) and Tab
 				driver.findElementByXPath("//input[@id='dest']").sendKeys("Trichy");
