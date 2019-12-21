@@ -3,40 +3,14 @@ package week4.assignments;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-public class EditLead {
+public class EditLead extends ProjectSpecificMethods{
+	
+	@Test
+	public  void edit() throws InterruptedException {
 
-	public static void main(String[] args) throws InterruptedException {
-
-		// Set property for browser
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-
-		// Launch Chrome browser
-		ChromeDriver driver = new ChromeDriver();
-
-		// Maximize window
-		driver.manage().window().maximize();
-
-		// Apply Implicit Wait
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		// Launch URL
-		driver.get("http://leaftaps.com/opentaps/");
-
-		Thread.sleep(5000);
-
-		// Enter the Username
-		driver.findElementById("username").sendKeys("DemoSalesManager");
-
-		// Enter the password
-		driver.findElementById("password").sendKeys("crmsfa");
-
-		// Click Login button
-		driver.findElementByClassName("decorativeSubmit").click();
-
-		// Click crm/sfa link
-		driver.findElementByXPath("//a[contains(text(),'CRM/SFA')]").click();
-
+		
 		Thread.sleep(5000);
 		// Click on Leads
 		driver.findElementByXPath("//a[text()='Leads']").click();

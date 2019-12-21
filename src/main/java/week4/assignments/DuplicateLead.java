@@ -3,10 +3,11 @@ package week4.assignments;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 public class DuplicateLead {
-
-	public static void main(String[] args) throws InterruptedException {
+@Test
+	public  void duplicate() throws InterruptedException {
 
 		// Set property for browser
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");

@@ -5,38 +5,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-public class CreateLead {
+import org.testng.annotations.Test;
+public class CreateLead extends ProjectSpecificMethods{
+	
+	@Test
+	public  void Create() throws InterruptedException {
 
-	public static void main(String[] args) throws InterruptedException {
-
-		//Set system property
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-
-		//Launch chrome
-		ChromeDriver driver = new ChromeDriver();
-
-		// Maximize window
-		driver.manage().window().maximize();
-
-		// Apply Implicit wait
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-
-		// Launch URL
-		driver.get("http://leaftaps.com/opentaps/");
-
-		Thread.sleep(5000);
-
-		// Enter the Username
-		driver.findElementById("username").sendKeys("DemoSalesManager");
-
-		// Enter the password
-		driver.findElementById("password").sendKeys("crmsfa");
-
-		// Click Login button
-		driver.findElementByClassName("decorativeSubmit").click();
-
-		// Click crm/sfa link
-		driver.findElementByXPath("//a[contains(text(),'CRM/SFA')]").click();
 
 		Thread.sleep(5000);
 
@@ -171,8 +145,7 @@ public class CreateLead {
 			System.out.println("Again Create a lead");
 		}
 
-		//		close browser
-		driver.close();
+
 	}
 
 }

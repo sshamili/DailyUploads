@@ -7,10 +7,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
 public class MergeLead {
-
-	public static void main(String[] args) throws InterruptedException {
+@Test
+	public  void merge() throws InterruptedException {
 		
 		// Set property for browser
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
