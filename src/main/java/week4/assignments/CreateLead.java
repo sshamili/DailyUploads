@@ -5,11 +5,17 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 public class CreateLead extends ProjectSpecificMethods{
+	@BeforeClass
+	public void setData() {
+		excelFileName ="CreateLead";
+	}
 	
-	@Test
-	public  void Create() throws InterruptedException {
+	@Test(dataProvider = "getData")
+	
+	public  void Create(String cName, String fName, String lName) throws InterruptedException {
 
 
 		Thread.sleep(5000);
@@ -18,13 +24,13 @@ public class CreateLead extends ProjectSpecificMethods{
 		driver.findElementByXPath("//a[text()='Create Lead']").click();
 
 		//		Enter Company Name
-		driver.findElementById("createLeadForm_companyName").sendKeys("TestLeaf");
+		driver.findElementById("createLeadForm_companyName").sendKeys(cName);
 
 		//		Enter First Name
-		driver.findElementById("createLeadForm_firstName").sendKeys("Shamili");
+		driver.findElementById("createLeadForm_firstName").sendKeys(fName);
 
 		//		Enter Last Name
-		driver.findElementById("createLeadForm_lastName").sendKeys("S");
+		driver.findElementById("createLeadForm_lastName").sendKeys(lName);
 
 		//		Enter First Name(Local)
 		driver.findElementById("createLeadForm_firstNameLocal").sendKeys("Shamili");

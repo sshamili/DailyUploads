@@ -3,6 +3,7 @@ package projectDay;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,37 +29,17 @@ public class Acme {
 		Thread.sleep(5000);
 		d.findElementById("vendorName").sendKeys("Blue Lagoon");
 		d.findElementByXPath("//button[text()='Search']").click();
-		int value = 1;
-		// To get the country name of the vendor 'Blue Lagoon'
-		int sizeofColumns = d.findElementsByTagName("//th").size();
-		List<WebElement> AllColumnName = d.findElementsByTagName("//th");
-		for (WebElement eachColumnName : AllColumnName) {
-			String UniqueColumnName = eachColumnName.getText();
-			if(UniqueColumnName.equalsIgnoreCase("Vendor")) {
-				for (int i = 0; i < sizeofColumns; i++) {
-					String CountryColumn =d.findElementByXPath("//th["+i+"]").getText();
-					if(CountryColumn.equals("Country")) {
-						value = i;
-					}
-				}
-			}
+		
+		
+		//d.findElementById("buttonShowAll").click();
+		Thread.sleep(5000);
+		String text = d.findElementsByXPath("//table[@class='table']//td").get(0).getText();
+		if (text.equals("Blue Lagoon")) {
+			System.out.println(d.findElementsByXPath("//table[@class='table']//td").get(4).getText());
 		}
-		
-		d.findElementByXPath("//table[@class='table']//th").getText();
-		String vendorName = d.findElementByXPath("//table[@class='table']//td").getText();
-		if (vendorName.equalsIgnoreCase("Blue Lagoon")) {
-			String CountryName = d.findElementByXPath("//table[@class='table']//td["+value+"]").getText();
-			System.out.println("Country Name is : "+CountryName);
-			
-			// Click Logout
-			d.findElementByXPath("//a[text()='Log Out']").click();
-			
-		}else
-		{
-			System.out.println(" No Records Found");
-		}
-		
-		
+
+		// close browser
+		d.close();
 		
 	}
 
