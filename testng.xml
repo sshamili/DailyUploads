@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="2"
+	verbose="1">
+
+	<test name="Test">
+		<parameter name="url" value="http://leaftaps.com/opentaps/" />
+		<parameter name="userName" value="DemoSalesManager" />
+		<parameter name="password" value="crmsfa" />
+		<classes>
+			<class name="week4.assignments.CreateLead" />
+		</classes>
+	</test> <!-- Test -->
+
+<!-- 	<test name="Test">
+		<parameter name="url" value="http://leaftaps.com/opentaps/" />
+		<parameter name="userName" value="DemoSalesManager" />
+		<parameter name="password" value="crmsfaq" />
+		<classes>
+			<class name="week4.assignments.EditLead" />
+		</classes>
+	</test> -->
+</suite> <!-- Suite -->
