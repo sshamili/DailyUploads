@@ -1,4 +1,4 @@
-package practice.leafgrounds.com;
+package practice.leafgrounds.pages;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,33 +1,16 @@
-package practice.leafgrounds.com;
+package practice.leafgrounds.pages;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import practice.leafgrounds.pages.LeafgroundHomePage;
 public class Button {
 
-	public static void main(String[] args) throws InterruptedException {
-		// Set the Driver Property
-
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-
-		// Launch Chrome Browser
-		ChromeDriver driver = new ChromeDriver();
-
-		// Maximize Window
-		driver.manage().window().maximize();
-
-		// Open the given URL
-		driver.get("http://leafground.com/");
-
-		// Apply Implicit wait
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		// Click on Button Text
-		driver.findElementByXPath("//h5[text()='Button']").click();
-		
+	public void buttonActions() {
+	//LeafgroundHomePage c = new LeafgroundHomePage();
+	System.out.println(LeafgroundHomePage.i);
 		// Click on "Go to home Page" button
 		driver.findElementById("home").click();
 		
