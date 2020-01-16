@@ -5,74 +5,64 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Edit {
+import practice.leafgrounds.Base.BaseProjectMethods;
 
-	public static void main(String[] args) {
+public class Edit extends BaseProjectMethods{
 
-		// Set the Driver Property
+	public Edit(ChromeDriver driver) {
+		this.driver = driver;
+	}
 
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+	public Edit clickEdit(){
 
-		// Launch Chrome Browser
-		ChromeDriver driver = new ChromeDriver();
+		// Click on Edit icon
+		driver.findElementByXPath("//a[@href='pages/Edit.html']//img").click();
+		return this;
+	}
 
-		// Maximize Window
-		driver.manage().window().maximize();
+	public Edit enterEmailAddress(){
+		// Enter the Email Address
+		driver.findElementById("email").sendKeys("kumar@testleaf.com");
+		return this;
+	}
 
-		// Open the given URL
-		driver.get("http://leafground.com/");
+	public Edit appendText() {
+		// Append the Text and Press Key Tab
+		driver.findElementByXPath("//input[@value='Append ']").sendKeys(" text", Keys.TAB);
+		// Verify the text is Appended
+		String newattribute = driver.findElementByXPath("(//div[@class='large-6 small-12 columns'])[2]//input").getAttribute("value");
 
-		// Apply Implicit wait
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		if(newattribute.contains("text")) {
+			System.out.println("Given Text Appended");
+		} else {
+			System.out.println("Try to Append text");
+		}
+		return this;
+	}
 
-		// Verify the page is TestLeaf
-		String tiltle = driver.getTitle();
-		
-		// Logic to verify the title
-		if (tiltle.equalsIgnoreCase("TestLeaf - Selenium Playground")) {
-			System.out.println("You are in Test Leaf home page");
+	public Edit defaultText() {
+		// Get the Default Text Entered 
+		String DefaultText = driver.findElementByName("username").getAttribute("value");
+		System.out.println(DefaultText);
+		return this;
+	}
+	public Edit clearText() {
+		// Clear the Text
+		driver.findElementByXPath("(//input[@name='username'])[2]").clear();
+		return this;
+	}
 
-			// Click on Edit icon
-			driver.findElementByXPath("//a[@href='pages/Edit.html']//img").click();
+	public Edit confirmDisabled() {
+		// Confirm the box is disabled
+		boolean buttonEnabled = driver.findElementByXPath("(//div[@class='large-6 small-12 columns'])[5]//input").isEnabled();
+		if(!buttonEnabled) {
+			System.out.println("Text box is disabled :"+!buttonEnabled);
 
-			// Enter the Email Address
-			driver.findElementById("email").sendKeys("kumar@testleaf.com");
-
-			// Append the Text and Press Key Tab
-			driver.findElementByXPath("//input[@value='Append ']").sendKeys(" text", Keys.TAB);
-
-			// Verify the text is Appended
-			String newattribute = driver.findElementByXPath("(//div[@class='large-6 small-12 columns'])[2]//input").getAttribute("value");
-			
-			if(newattribute.contains("text")) {
-				System.out.println("Given Text Appended");
-			} else {
-				System.out.println("Try to Append text");
-			}
-
-			// Get the Default Text Entered 
-			String DefaultText = driver.findElementByName("username").getAttribute("value");
-			System.out.println(DefaultText);
-
-			// Clear the Text
-			driver.findElementByXPath("(//input[@name='username'])[2]").clear();
-
-			// Confirm the box is disabled
-			boolean buttonEnabled = driver.findElementByXPath("(//div[@class='large-6 small-12 columns'])[5]//input").isEnabled();
-
-			if(!buttonEnabled) {
-				System.out.println("Text box is disabled :"+!buttonEnabled);
-				
-			// Close browser
-			driver.close();
-			}
 		} else {
 
 			System.out.println("Go to TestLeaf home page");
 		}
-
-
-
+		return this;
 	}
 
 }

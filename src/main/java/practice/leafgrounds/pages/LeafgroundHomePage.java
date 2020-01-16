@@ -2,39 +2,51 @@ package practice.leafgrounds.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LeafgroundHomePage {
-	
-	public static ChromeDriver driver;
-	public static int i=5;
-	public ChromeDriver setup() {
-		// Set the Driver Property
-		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+import practice.leafgrounds.Base.BaseProjectMethods;
 
-		// Launch Chrome Browser
-		driver = new ChromeDriver();
+public class LeafgroundHomePage extends BaseProjectMethods{
 
-		// Maximize Window
-		driver.manage().window().maximize();
-		
-		// Apply Implicit wait
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	public LeafgroundHomePage(ChromeDriver driver) {
+		this.driver = driver;
+	}
 
-		// Open the given URL
-		driver.get("http://leafground.com/");
-		System.out.println(i);
-		return driver;
-		
+	public LeafgroundHomePage test() {
+		String actualTitle = driver.getTitle();
+		String expectedTitle = "TestLeaf - Selenium Playground";
+		if (actualTitle.equalsIgnoreCase(expectedTitle)) {
+			System.out.println("LeafGround home page opened successfully");
+		}
+		return this;
+	}
+
+	public Button button() {
+
+		// Click on Button Text
+		driver.findElementByXPath("//h5[text()='Button']").click();
+		System.out.println("Navigated to buttons page successfully");
+		return new Button(driver);
+
+	}
+
+	public Edit edit() {
+
+		// Click on Edit icon
+		driver.findElementByXPath("//a[@href='pages/Edit.html']//img").click();
+		System.out.println("Navigated to edit page successfully");
+		return new Edit(driver);
+
 	}
 	
-	public Button button() {
-	
-	// Click on Button Text
-	driver.findElementByXPath("//h5[text()='Button']").click();
-	System.out.println(i);
-	return new Button();
-	
+	public HyperLink hyperLink() {
+
+		// Click on Edit icon
+		driver.findElementByXPath("//a[@href='pages/Edit.html']//img").click();
+		System.out.println("Navigated to edit page successfully");
+		return new HyperLink(driver);
+
 	}
 
 }
